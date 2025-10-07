@@ -8,7 +8,7 @@ st.set_page_config(page_title="退货运营可视化面板", layout="wide")
 
 # === 读取并清理数据 ===
 df = (
-    pd.read_csv("data.csv", encoding="utf-8")  # 逗号分隔
+    pd.read_csv("data.csv", encoding="gb2312")  # 逗号分隔
       .dropna(how="all")                       # 删除整行全空的 ,,,,, 记录
 )
 
