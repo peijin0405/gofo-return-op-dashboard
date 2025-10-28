@@ -7,10 +7,11 @@ from datetime import datetime
 st.set_page_config(page_title="退货运营可视化面板", layout="wide")
 
 # === 读取并清理数据 ===
-df = (
-    pd.read_csv("data.csv", encoding="utf-8", errors="ignore")
-      .dropna(how="all")
-)
+with open("data.csv", "r", encoding="utf-8", errors="ignore") as f:
+    df = (
+        pd.read_csv(f)      # 此时不再传入 encoding
+          .dropna(how="all")
+    )
 
 # 去掉列名空格
 df.columns = df.columns.str.strip()
